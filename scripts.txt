@@ -1,0 +1,43 @@
+-- Table: public.image_details
+
+-- DROP TABLE public.image_details;
+
+CREATE TABLE IF NOT EXISTS public.image_details
+(
+    image_id integer NOT NULL DEFAULT nextval('image_details_image_id_seq'::regclass),
+    category character varying(255) COLLATE pg_catalog."default",
+    content_type character varying(255) COLLATE pg_catalog."default",
+    data bytea,
+    description character varying(255) COLLATE pg_catalog."default",
+    size bigint,
+    status character varying(255) COLLATE pg_catalog."default",
+    user_id integer,
+    CONSTRAINT image_details_pkey PRIMARY KEY (image_id),
+    CONSTRAINT fkffk9ix12jia0kgf22ujl3yntv FOREIGN KEY (user_id)
+        REFERENCES public.user_data (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.image_details
+    OWNER to postgres;
+	
+--------------------------------------------------------------------------------------
+-- Table: public.user_data
+
+-- DROP TABLE public.user_data;
+
+CREATE TABLE IF NOT EXISTS public.user_data
+(
+    id integer NOT NULL DEFAULT nextval('user_data_id_seq'::regclass),
+    email_check character varying(255) COLLATE pg_catalog."default",
+    password_check character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT user_data_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.user_data
+    OWNER to postgres;

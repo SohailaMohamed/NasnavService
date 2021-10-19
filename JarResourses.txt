@@ -1,0 +1,8 @@
+DB Connection
+
+spring.datasource.url=jdbc:postgresql://localhost:5433/postgres
+spring.datasource.username=postgres
+spring.datasource.password=Admin123
+
+swagger ui url = http://localhost:8181/swagger-ui.html
+swagger docs url = http://localhost:8181/v2/api-docs
